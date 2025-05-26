@@ -9,10 +9,10 @@ type FindMovieProps = {
   setMovies: (value: React.SetStateAction<Movie[]>) => void;
 };
 
-const isValidMovieData = (data: any): data is MovieData => {
+const isValidMovieData = (data: unknown): data is MovieData => {
   return (
-    data &&
     typeof data === 'object' &&
+    data !== null &&
     'Title' in data &&
     'Poster' in data &&
     'Plot' in data &&
