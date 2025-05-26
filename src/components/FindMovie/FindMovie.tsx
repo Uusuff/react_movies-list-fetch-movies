@@ -4,7 +4,6 @@ import { MovieCard } from '../MovieCard';
 import { getMovie } from '../../api';
 import { Movie } from '../../types/Movie';
 import { MovieData } from '../../types/MovieData';
-import { set } from 'cypress/types/lodash';
 
 type FindMovieProps = {
   setMovies: (value: React.SetStateAction<Movie[]>) => void;
@@ -81,7 +80,7 @@ export const FindMovie: React.FC<FindMovieProps> = ({ setMovies }) => {
               placeholder="Enter a title to search"
               className={`input ${error ? 'is-danger' : ''}`}
               value={title}
-              onChange={(e) => {
+              onChange={e => {
                 setTitle(e.target.value);
                 setError(false);
               }}
@@ -102,7 +101,7 @@ export const FindMovie: React.FC<FindMovieProps> = ({ setMovies }) => {
               type="submit"
               className={`button is-light ${loading ? 'is-loading' : ''}`}
               disabled={!title.trim()}
-              onClick={(e) => searchMovie(e)}
+              onClick={e => searchMovie(e)}
             >
               Find a movie
             </button>
